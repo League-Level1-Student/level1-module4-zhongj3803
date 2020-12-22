@@ -16,8 +16,8 @@ JButton add = new JButton();
 JButton subtract = new JButton();
 JButton multiply =  new JButton();
 JButton divide = new JButton();
-JTextField firstNumber = new JTextField();
-JTextField secondNumber = new JTextField();
+JTextField firstNumber = new JTextField(10);
+JTextField secondNumber = new JTextField(10);
 JLabel label = new JLabel();
 void run() {
 	frame.setVisible(true);
@@ -48,13 +48,19 @@ void add() {
 	label.setText(""+(firstNumNum+secondNumNum));
 }
 void subtract() {
-	
+	int firstNumNum = Integer.parseInt(firstNumber.getText());
+	int secondNumNum = Integer.parseInt(secondNumber.getText());
+	label.setText(""+(firstNumNum-secondNumNum));
 }
 void multiply() {
-	
+	int firstNumNum = Integer.parseInt(firstNumber.getText());
+	int secondNumNum = Integer.parseInt(secondNumber.getText());
+	label.setText(""+(firstNumNum*secondNumNum));
 }
 void divide() {
-	
+	int firstNumNum = Integer.parseInt(firstNumber.getText());
+	int secondNumNum = Integer.parseInt(secondNumber.getText());
+	label.setText(""+(firstNumNum/secondNumNum));
 }
 @Override
 public void mouseClicked(MouseEvent e) {
