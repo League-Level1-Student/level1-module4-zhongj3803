@@ -20,11 +20,11 @@ public class WhackAMole implements ActionListener {
 	
 	void run() {
 		Random ran = new Random();
-		int randomNumber = ran.nextInt(12);
+		int ranNum = ran.nextInt(12);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		drawButtons(randomNumber);
-		panel.setLayout(new GridLayout(3,4));
+		drawButtons(ranNum);
+		panel.setLayout(new GridLayout(4,3));
 		frame.add(panel);
 		frame.pack();
 	}
@@ -49,10 +49,6 @@ public class WhackAMole implements ActionListener {
 			whackMissed++;
 			speak("missed");
 		}
-		frame.dispose();
-		Random ran = new Random();
-		int ranNum = ran.nextInt(12);
-		drawButtons(ranNum);
 		if (whackCount==10) {
 			endGame(new Date(),10);
 		}
@@ -60,6 +56,17 @@ public class WhackAMole implements ActionListener {
 			JOptionPane.showMessageDialog(null,"You lost");
 			endGame(new Date(),whackCount);
 		}
+		frame.dispose();
+		panel= new JPanel();
+		panel.setLayout(new GridLayout(4,3));
+		frame = new JFrame();
+		frame.setVisible(true);
+		Random ran = new Random();
+		int ranNum = ran.nextInt(12);
+		drawButtons(ranNum);
+		frame.add(panel);
+		frame.pack();
+		
 	}
 	 static void speak(String words) {
 	        if( System.getProperty( "os.name" ).contains( "Windows" ) ) {
